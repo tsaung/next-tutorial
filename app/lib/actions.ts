@@ -48,20 +48,21 @@ export async function updateInvoice(id: string, formData: FormData) {
     amount: formData.get('amount'),
     status: formData.get('status'),
   });
- 
+
   const amountInCents = amount * 100;
- 
+
   await sql`
     UPDATE invoices
     SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
     WHERE id = ${id}
   `;
- 
+
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 }
 
-export async function deleteInvoice(id: string){
+export async function deleteInvoice(id: string) {
+  throw new Error('Unable to delete invoice');
   try {
     await sql`
       DELETE FROM invoices
