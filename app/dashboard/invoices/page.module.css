@@ -1,0 +1,7 @@
+.searchbarContainer {
+  @apply mt-4 flex items-center justify-between gap-2 md:mt-8 text-red-600
+}
+
+.hero {
+  color: blueviolet;
+}
